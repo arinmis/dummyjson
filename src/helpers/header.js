@@ -9,29 +9,25 @@ const Header = () => {
     >
       <NavLink
         to="home"
-        className={"link"}
-        // className={({ isActive }) => (isActive ? "link-clicked" : "link")}
+        className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         Home
       </NavLink>
       <NavLink
         to="about-us"
-        className={"link"}
-        // className={({ isActive }) => (isActive ? "link-clicked" : "link")}
+        className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         About Us
       </NavLink>
       <NavLink
         to="contanct-us"
-        className={"link"}
-        // className={({ isActive }) => (isActive ? "link-clicked" : "link")}
+        className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         Contact Us
       </NavLink>
       <NavLink
         to="services"
-        className={"link"}
-        // className={({ isActive }) => (isActive ? "link-clicked" : "link")}
+        className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         Services
       </NavLink>
