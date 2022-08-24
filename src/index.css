@@ -1,11 +1,14 @@
 @tailwind base;
 
+.link-base {
+    @apply hover:text-white cursor-pointer mx-3;
+}
 .link {
-  @apply text-slate-50 hover:text-white cursor-pointer mx-3;
+  @apply text-slate-500  link-base;
 }
 
 .link-clicked {
-  @apply text-white;
+  @apply  text-white link-base;
 }
 
 @tailwind components;
