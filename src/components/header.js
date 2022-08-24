@@ -8,7 +8,7 @@ const Header = () => {
       h-48
     >
       <NavLink
-        to="home"
+        to="/"
         className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         Home
@@ -20,7 +20,7 @@ const Header = () => {
         About Us
       </NavLink>
       <NavLink
-        to="contanct-us"
+        to="contact-us"
         className={({ isActive }) => (isActive ? "link-clicked" : "link")}
       >
         Contact Us
