@@ -12,6 +12,17 @@
   @apply text-white link-base;
 }
 
+.card {
+  @apply md:p-3  p-1 text-center bg-white rounded-md border border-dark shadow-md;
+}
+
+.main-padding {
+  @apply sm:pt-20 pt-5;
+}
+
+.card-w-resp {
+  @apply w-full md:max-w-md max-w-sm
+}
 
 @tailwind components;
 @tailwind utilities;

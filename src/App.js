@@ -9,16 +9,15 @@ import Services from "./pages/services/services";
 const App = () => {
   return (
     <BrowserRouter>
-
       <div className="min-h-screen flex flex-col">
         <Header />
         <main>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/services" element={<Services />} />
-        </Routes>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
         </main>
         <Footer />
       </div>
