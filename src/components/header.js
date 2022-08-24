@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div
-      className="w-screen h-10 bg-gray-900 flex justify-end  items-center pr-10 "
+      className="w-screen h-10  flex justify-end  items-center pr-10 bg-dark"
       h-48
     >
       <NavLink
