@@ -1,5 +1,12 @@
-const  App =  () => {
-  return <div class="text-3xl font-bold underline">hello world</div>;
-}
+import { BrowserRouter } from "react-router-dom";
+import Header from "./helpers/header";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>
+  );
+};
 
 export default App;
