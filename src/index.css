@@ -17,7 +17,7 @@
 }
 
 .main-padding {
-  @apply sm:pt-20 pt-5;
+  @apply sm:py-20 py-5;
 }
 
 .card-w-resp {
@@ -38,6 +38,10 @@
 
 .title {
   @apply text-xl font-bold mb-2;
+}
+
+.img-style {
+  @apply rounded-sm;
 }
 
 @tailwind components;
