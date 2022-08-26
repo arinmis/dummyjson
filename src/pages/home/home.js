@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Product from "../../components/product";
 import { useNavigate } from "react-router";
 
-const Home = () => {
-  const [products, setProducts] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+const Home = ({products}) => {
 
   const navigate = useNavigate();
   const greaterProductIndex = 0;
@@ -36,18 +32,8 @@ const Home = () => {
     );
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    // TODO: handle error
-    axios.get("https://dummyjson.com/products").then((response) => {
-      setProducts(response.data.products);
-      setIsLoading(false);
-    });
-  }, []);
 
-  return isLoading ? (
-    <p>...loading</p>
-  ) : (
+  return  (
     <div className="flex justify-center main-padding">
       <div className="grid justify-items-center	xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 divide-y">
         {/* the first product */}
