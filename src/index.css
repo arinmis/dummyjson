@@ -19,7 +19,7 @@
 }
 
 .main-padding {
-  @apply sm:py-20 py-5;
+  @apply sm:p-20 p-5;
 }
 
 .card-w-resp {
