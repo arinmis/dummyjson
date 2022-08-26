@@ -3,8 +3,14 @@ import React from "react";
 const Product = ({ thumbnail, title, price }) => {
   return (
     <div className="card  p-2  w-72 h-96 flex flex-col justify-center divide-y">
-      <img src={thumbnail} className="h-3/4" alt={`${title} foto`} />
-      <div className="text-left  grid gap-2 mt-2">
+      <div className="h-5/6">
+        <img
+          src={thumbnail}
+          className="object-cover h-full w-full"
+          alt={`${title} foto`}
+        />
+      </div>
+      <div className="text-left  grid mt-2">
         <div>
           <span className="text-lg">{price}</span> <sup>$</sup>
         </div>
