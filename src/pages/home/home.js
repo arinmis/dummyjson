@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../../components/product";
+import { useNavigate } from "react-router";
 
 const Home = () => {
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  const navigate = useNavigate();
+  const greaterProductIndex = 0;
+
   const greaterProduct = (productInfo) => {
     return (
-      <div className="col-span-full h-96 mb-5">
+      <div
+        onClick={() => navigate(`product/${greaterProductIndex}`)}
+        className="col-span-full h-96 mb-5"
+      >
         <div className="card p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
           <img
             src={productInfo.thumbnail}
@@ -37,20 +44,21 @@ const Home = () => {
       setIsLoading(false);
     });
   }, []);
-  
+
   return isLoading ? (
     <p>...loading</p>
   ) : (
     <div className="flex justify-center main-padding">
       <div className="grid justify-items-center	xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 divide-y">
         {/* the first product */}
-        {greaterProduct(products[0])}
+        {greaterProduct(products[greaterProductIndex])}
         {products.map((product, index) => {
-          return index === 0 ? null : (
+          return index === greaterProductIndex ? null : (
             <Product
               thumbnail={product.thumbnail}
               price={product.price}
               title={product.title}
+              id={product.id}
             />
           );
         })}
