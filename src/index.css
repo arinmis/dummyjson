@@ -38,6 +38,10 @@
   @apply btn bg-dark text-white;
 }
 
+.btn-danger {
+  @apply btn bg-danger text-white;
+}
+
 .title {
   @apply text-xl font-bold mb-2;
 }

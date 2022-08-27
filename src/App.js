@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -39,7 +39,9 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route
               path="/product/:id"
-              element={<ProductDetails products={products} />}
+              element={
+                <ProductDetails products={products} setProducts={setProducts} />
+              }
             />
             <Route path="*" element={<p>Oops, there is nothing there :(</p>} />
           </Routes>

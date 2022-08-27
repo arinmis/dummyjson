@@ -5,7 +5,7 @@ const Product = ({ thumbnail, title, price, id }) => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate(`product/${id - 1}`)}
+      onClick={() => navigate(`product/${id}`)}
       className="card p-2 w-72 h-96 flex flex-col justify-center divide-y"
     >
       <div className="h-5/6">
