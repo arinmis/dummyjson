@@ -1,7 +1,137 @@
-import React from "react";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import Input from "../../components/input";
 
-const Services = () => {
-  return <div>Services</div>;
+const Services = ({ setProducts, newProductID }) => {
+  const navigate = useNavigate();
+  const [newProduct, setnewProduct] = useState({
+    id: newProductID,
+    title: null,
+    description: null,
+    price: null,
+    discountPercentage: null,
+    rating: null,
+    stock: null,
+    brand: null,
+    category: null,
+    thumbnail: null,
+    images: [],
+  });
+
+  const productFieldUpdater = (event, field) => {
+    return setnewProduct((prev) => ({
+      ...prev,
+      [field]: event.target.value,
+    }));
+  };
+
+  const handleCreate = (event) => {
+    event.preventDefault();
+    console.log(newProduct);
+    // update backend
+    axios.post(`${process.env.REACT_APP_BASE_URL}/`, newProduct);
+    // update frontend
+    setProducts((prev) => ({
+      ...prev,
+      [newProductID]: { ...newProduct },
+    }));
+    navigate(`/product/${newProductID}`);
+  };
+
+  return (
+    <div className="flex justify-center main-padding">
+      <form className="text-left card-w-resp grid grid-cols-2 gap-1">
+        <Input label="id" type="number" value={newProduct.id} readOnly={true} />
+        <Input
+          label="title"
+          type="text"
+          value={newProduct.title}
+          onChange={(event) => productFieldUpdater(event, "title")}
+        />
+        <Input
+          label="price"
+          type="number"
+          value={newProduct.price}
+          onChange={(event) => productFieldUpdater(event, "price")}
+        />
+        <Input
+          label="stock"
+          type="number"
+          value={newProduct.stock}
+          onChange={(event) => productFieldUpdater(event, "stock")}
+        />
+        <Input
+          label="rating"
+          type="number"
+          value={newProduct.rating}
+          onChange={(event) => productFieldUpdater(event, "rating")}
+        />
+        <Input
+          label="brand"
+          type="text"
+          value={newProduct.brand}
+          onChange={(event) => productFieldUpdater(event, "brand")}
+        />
+        <Input
+          label="category"
+          type="text"
+          value={newProduct.category}
+          onChange={(event) => productFieldUpdater(event, "category")}
+        />
+        <Input
+          label="discound percentage"
+          type="number"
+          value={newProduct.discountPercentage}
+          onChange={(event) => productFieldUpdater(event, "discountPercentage")}
+        />
+
+        <div className="col-span-2">
+          <Input
+            label="thumbnail"
+            type="link"
+            value={newProduct.thumbnail}
+            onChange={(event) => productFieldUpdater(event, "thumbnail")}
+          />
+        </div>
+        <div className="col-span-2">
+          <Input
+            label={"images(comma separated links)"}
+            type={"text"}
+            value={newProduct.images.toString()}
+            onChange={(event) => {
+              const images = event.target.value.replaceAll(" ", "").split(",");
+              setnewProduct((prev) => ({
+                ...prev,
+                images: images,
+              }));
+            }}
+          />
+        </div>
+        <label className="col-span-2 h-full">
+          <span>Description:</span>
+          <textarea
+            id="desc"
+            onChange={() => {
+              const description = document.getElementById("desc").value;
+              setnewProduct((prev) => ({
+                ...prev,
+                description: description,
+              }));
+            }}
+            className="w-full input-style h-24"
+          >
+            {newProduct.description}
+          </textarea>
+        </label>
+        <div className="col-span-2 flex justify-end">
+          <button onClick={handleCreate} className="btn-primary mt-3">
+            Create Product
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default Services;
