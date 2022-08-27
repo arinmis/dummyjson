@@ -25,8 +25,9 @@ const App = () => {
       setIsLoading(false);
     });
   }, []);
-
   if (isLoading) return <p>...loading</p>;
+  // const newID =
+  //   Number(Object.keys(products)[Object.keys(products).length - 1]) + 1;
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -36,7 +37,19 @@ const App = () => {
             <Route index element={<Home products={products} />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/services" element={<Services />} />
+            <Route
+              path="/services"
+              element={
+                <Services
+                  setProducts={setProducts}
+                  newProductID={
+                    Number(
+                      Object.keys(products)[Object.keys(products).length - 1]
+                    ) + 1
+                  }
+                />
+              }
+            />
             <Route
               path="/product/:id"
               element={
