@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { craeteImageArray } from "../helpers/helper";
 import Input from "./input";
 import Modal from "./modal";
 
@@ -103,9 +104,7 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
                 type={"text"}
                 value={updatedProduct.images.toString()}
                 onChange={(event) => {
-                  const images = event.target.value
-                    .replaceAll(" ", "")
-                    .split(",");
+                  const images = craeteImageArray(event.target.value); 
                   setUpdatedProduct((prev) => ({
                     ...prev,
                     images: images,

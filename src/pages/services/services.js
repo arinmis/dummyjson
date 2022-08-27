@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Input from "../../components/input";
+import { craeteImageArray } from "../../helpers/helper";
 
 const Services = ({ setProducts, newProductID }) => {
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const Services = ({ setProducts, newProductID }) => {
             type={"text"}
             value={newProduct.images.toString()}
             onChange={(event) => {
-              const images = event.target.value.replaceAll(" ", "").split(",");
+              const images = craeteImageArray(event.target.value); 
               setnewProduct((prev) => ({
                 ...prev,
                 images: images,
@@ -109,7 +110,7 @@ const Services = ({ setProducts, newProductID }) => {
           />
         </div>
         <label className="col-span-2 h-full">
-          <span>Description:</span>
+          <span>description:</span>
           <textarea
             id="desc"
             onChange={() => {
