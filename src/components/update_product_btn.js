@@ -19,19 +19,38 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
         setIsOn={setIsModalOn}
         content={
           <form className="text-left card-w-resp grid grid-cols-2 gap-1">
-            <Input label="id" type="number" />
-            <Input label="title" type="text" />
-            <Input label="price" type="number" />
-            <Input label="stock" type="number" />
-            <Input label="brand" type="text" />
-            <Input label="category" type="text" />
-            <Input label="thumbnail" type="link" />
+            <Input
+              label="id"
+              type="number"
+              value={selectedProduct.id}
+              readOnly={true}
+            />
+            <Input label="title" type="text" value={selectedProduct.title} />
+            <Input label="price" type="number" value={selectedProduct.price} />
+            <Input label="stock" type="number" value={selectedProduct.stock} />
+            <Input label="brand" type="text" value={selectedProduct.brand} />
+            <Input
+              label="category"
+              type="text"
+              value={selectedProduct.category}
+            />
+            <Input
+              label="thumbnail"
+              type="link"
+              value={selectedProduct.thumbnail}
+            />
             <div className="col-span-2">
-              <Input label={"images(comma separated links)"} type={"email"} />
+              <Input
+                label={"images(comma separated links)"}
+                type={"text"}
+                value={selectedProduct.images.toString()}
+              />
             </div>
             <label className="col-span-2 h-full">
               <span>Description:</span>
-              <textarea className="w-full input-style h-24" />
+              <textarea className="w-full input-style h-24">
+                {selectedProduct.description}
+              </textarea>
             </label>
             <div className="col-span-2 flex justify-end">
               <button
@@ -41,7 +60,7 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
                 }}
                 className="btn-primary mt-3"
               >
-               Update 
+                Update
               </button>
             </div>
           </form>
