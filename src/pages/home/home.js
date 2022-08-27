@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 const Home = ({ products }) => {
   const navigate = useNavigate();
-  const greaterProductID = Object.keys(products)[0];
+  const greaterProductID = Number(Object.keys(products)[0]);
 
   const greaterProduct = (productInfo) => {
     return (
@@ -37,7 +37,7 @@ const Home = ({ products }) => {
         {/* the first product */}
         {greaterProduct(products[greaterProductID])}
         {Object.values(products).map((product, index) => {
-          return index + 1 === greaterProductID ? null : (
+          return product.id === greaterProductID ? null : (
             <Product
               thumbnail={product.thumbnail}
               price={product.price}
