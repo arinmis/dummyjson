@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 const Home = ({ products }) => {
   const navigate = useNavigate();
-  const greaterProductID = 1;
+  const greaterProductID = Object.keys(products)[0];
 
   const greaterProduct = (productInfo) => {
     return (
@@ -14,7 +14,7 @@ const Home = ({ products }) => {
         <div className="card p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
           <img
             src={productInfo.thumbnail}
-            className="object-cover h-full w-full rounded-sm"
+            className="object-cover h-full w-full rounded-sm overflow-hidden"
             alt={`${productInfo.title} foto`}
           />
           <div className="text-left align-middle">
@@ -43,6 +43,7 @@ const Home = ({ products }) => {
               price={product.price}
               title={product.title}
               id={product.id}
+              key={product.id}
             />
           );
         })}
