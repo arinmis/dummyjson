@@ -17,7 +17,11 @@ const App = () => {
     setIsLoading(true);
     // TODO: handle error
     axios.get("https://dummyjson.com/products").then((response) => {
-      setProducts(response.data.products);
+      const productsObj = {};
+      response.data.products.forEach(
+        (product) => (productsObj[product.id] = product)
+      );
+      setProducts(productsObj);
       setIsLoading(false);
     });
   }, []);
@@ -33,7 +37,10 @@ const App = () => {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/product/:id" element={<ProductDetails products={products}/>} />
+            <Route
+              path="/product/:id"
+              element={<ProductDetails products={products} />}
+            />
             <Route path="*" element={<p>Oops, there is nothing there :(</p>} />
           </Routes>
         </main>
