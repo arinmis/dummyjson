@@ -89,12 +89,14 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
               value={updatedProduct.category}
               onChange={(event) => productFieldUpdater(event, "category")}
             />
-            <Input
-              label="thumbnail"
-              type="link"
-              value={updatedProduct.thumbnail}
-              onChange={(event) => productFieldUpdater(event, "thumbnail")}
-            />
+            <div className="col-span-2">
+              <Input
+                label="thumbnail"
+                type="link"
+                value={updatedProduct.thumbnail}
+                onChange={(event) => productFieldUpdater(event, "thumbnail")}
+              />
+            </div>
             <div className="col-span-2">
               <Input
                 label={"images(comma separated links)"}
