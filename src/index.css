@@ -42,6 +42,10 @@
   @apply text-xl font-bold mb-2;
 }
 
+.title-lg {
+  @apply text-2xl font-bold mb-2;
+}
+
 .img-style {
   @apply rounded-sm;
 }
