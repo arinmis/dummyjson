@@ -28,7 +28,7 @@ const ProductDetails = ({ products, setProducts }) => {
 
   const productInfo = (
     <>
-      <div className="flex justify-between mb-2">
+      <div className="flex flex-col md:flex-row justify-between mb-2">
         <p>
           <span className="title-lg ">{selectedProduct.title}</span>
           <span className="mx-1">|</span>
