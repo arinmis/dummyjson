@@ -1,5 +1,5 @@
 import axios from "axios";
-import  { useState } from "react";
+import { useState } from "react";
 import Input from "./input";
 import Modal from "./modal";
 
@@ -17,16 +17,24 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
   const handleUpdate = (event) => {
     event.preventDefault();
     console.log(updatedProduct);
-    // update frontend
-    setProducts((prev) => ({
-      ...prev,
-      [selectedProduct.id]: { ...updatedProduct },
-    }));
     // update backend
-    axios.put(
-      `${process.env.REACT_APP_BASE_URL}/${selectedProduct.id}`,
-      updatedProduct
-    );
+    const copyUpdatedProduct = Object.assign({}, updatedProduct);
+    delete copyUpdatedProduct.id; // no need to send id to backend
+    axios
+      .put(
+        `${process.env.REACT_APP_BASE_URL}/${selectedProduct.id}`,
+        copyUpdatedProduct
+      )
+      .then(() => {
+        // update frontend
+        setProducts((prev) => ({
+          ...prev,
+          [selectedProduct.id]: { ...updatedProduct },
+        }));
+      })
+      .catch(() => {
+        console.log("Oops, something went wront!");
+      });
     setIsModalOn(false);
   };
 
@@ -45,12 +53,6 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
         setIsOn={setIsModalOn}
         content={
           <form className="text-left card-w-resp grid grid-cols-2 gap-1">
-            <Input
-              label="id"
-              type="number"
-              value={updatedProduct.id}
-              readOnly={true}
-            />
             <Input
               label="title"
               type="text"
