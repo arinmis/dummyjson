@@ -1,8 +1,9 @@
-const Input = ({ label, type, value, readOnly }) => {
+const Input = ({ label, type, value, readOnly, onChange }) => {
   return (
-    <label htmlFor="">
+    <label>
       <span>{`${label}:`}</span>
       <input
+        onChange={onChange}
         type={type}
         className="w-full input-style"
         value={value ? value : null}
