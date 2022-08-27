@@ -21,7 +21,7 @@ const ImageViewer = ({ images }) => {
       </div>
       <div className="card col-span-11 ml-3 flex items-center">
         <img
-          className="w-full  h-72 img-style object-contain hover:cursor-pointer"
+          className="w-full  h-72 img-style object-contain"
           src={images[hoveredImage]}
           alt={`product foto-${hoveredImage}`}
         />

@@ -11,7 +11,7 @@ const Home = ({ products }) => {
         onClick={() => navigate(`product/${greaterProductID}`)}
         className="col-span-full h-96 mb-5"
       >
-        <div className="card p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
+        <div className="card card-onhover p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
           <img
             src={productInfo.thumbnail}
             className="object-cover h-full w-full rounded-sm overflow-hidden"
@@ -33,7 +33,7 @@ const Home = ({ products }) => {
 
   return (
     <div className="flex justify-center main-padding">
-      <div className="grid justify-items-center	xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 divide-y">
+      <div className="grid justify-items-center	xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 ">
         {/* the first product */}
         {greaterProduct(products[greaterProductID])}
         {Object.values(products).map((product, index) => {
