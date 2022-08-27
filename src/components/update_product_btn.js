@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import Input from "./input";
 import Modal from "./modal";
@@ -11,6 +12,22 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
       ...prev,
       [field]: event.target.value,
     }));
+  };
+
+  const handleUpdate = (event) => {
+    event.preventDefault();
+    console.log(updatedProduct);
+    // update frontend
+    setProducts((prev) => ({
+      ...prev,
+      [selectedProduct.id]: { ...updatedProduct },
+    }));
+    // update backend
+    axios.put(
+      `${process.env.REACT_APP_BASE_URL}/${selectedProduct.id}`,
+      updatedProduct
+    );
+    setIsModalOn(false);
   };
 
   return (
@@ -51,6 +68,12 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
               type="number"
               value={updatedProduct.stock}
               onChange={(event) => productFieldUpdater(event, "stock")}
+            />
+            <Input
+              label="rating"
+              type="number"
+              value={updatedProduct.rating}
+              onChange={(event) => productFieldUpdater(event, "rating")}
             />
             <Input
               label="brand"
@@ -103,13 +126,7 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
               </textarea>
             </label>
             <div className="col-span-2 flex justify-end">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("We received your message.");
-                }}
-                className="btn-primary mt-3"
-              >
+              <button onClick={handleUpdate} className="btn-primary mt-3">
                 Update
               </button>
             </div>
