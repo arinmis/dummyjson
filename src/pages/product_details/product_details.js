@@ -3,6 +3,8 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate, useParams } from "react-router";
 import ImageViewer from "../../components/image_viewer";
+import Modal from "../../components/modal";
+import UpdateProductBtn from "../../components/update_product_btn";
 
 const ProductDetails = ({ products, setProducts }) => {
   const { id } = useParams();
@@ -75,7 +77,10 @@ const ProductDetails = ({ products, setProducts }) => {
           <button onClick={handleDelete} className="btn-danger">
             Delete
           </button>
-          <button className="btn-primary">Update</button>
+          <UpdateProductBtn
+            selectedProduct={selectedProduct}
+            setProducts={setProducts}
+          />
         </div>
       </div>
     </div>
