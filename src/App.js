@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     setIsLoading(true);
     // TODO: handle error
-    axios.get("https://dummyjson.com/products").then((response) => {
+    axios.get(process.env.REACT_APP_BASE_URL).then((response) => {
       const productsObj = {};
       response.data.products.forEach(
         (product) => (productsObj[product.id] = product)
