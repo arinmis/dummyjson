@@ -14,6 +14,8 @@ const ProductDetails = ({ products, setProducts }) => {
   };
 
   const handleDelete = () => {
+    if (!window.confirm(`Are you sure to delete ${selectedProduct.title}?`))
+      return;
     // remove from backend
     axios.delete(`${process.env.REACT_APP_BASE_URL}/${id}`);
     // remove on frontend
@@ -73,7 +75,7 @@ const ProductDetails = ({ products, setProducts }) => {
           <button onClick={handleDelete} className="btn-danger">
             Delete
           </button>
-          {/* <button className="btn-primary">Update</button> */}
+          <button className="btn-primary">Update</button>
         </div>
       </div>
     </div>
