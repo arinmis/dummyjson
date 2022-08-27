@@ -3,7 +3,6 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate, useParams } from "react-router";
 import ImageViewer from "../../components/image_viewer";
-import Modal from "../../components/modal";
 import UpdateProductBtn from "../../components/update_product_btn";
 
 const ProductDetails = ({ products, setProducts }) => {
@@ -36,6 +35,7 @@ const ProductDetails = ({ products, setProducts }) => {
           <span className="">{selectedProduct.brand}</span>
         </p>
         <div className="flex items-center">
+          {/* TODO: update rating starts when user update */}
           <ReactStars
             size="20"
             edit={false}
