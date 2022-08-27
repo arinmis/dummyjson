@@ -52,7 +52,7 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
         isOn={isModalOn}
         setIsOn={setIsModalOn}
         content={
-          <form className="text-left card-w-resp grid grid-cols-2 gap-1">
+          <form className="text-left p-3 grid grid-cols-2 gap-1">
             <Input
               label="title"
               type="text"

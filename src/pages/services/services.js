@@ -40,8 +40,8 @@ const Services = ({ setProducts, newProductID }) => {
   };
 
   return (
-    <div className="flex justify-center main-padding">
-      <form className="text-left card-w-resp grid grid-cols-2 gap-1">
+    <div className="flex justify-center main-padding ">
+      <form className="text-left card-w-resp grid grid-cols-2 gap-2 ">
         <Input label="id" type="number" value={newProduct.id} readOnly={true} />
         <Input
           label="title"
