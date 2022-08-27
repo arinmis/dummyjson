@@ -26,6 +26,8 @@ const ProductDetails = ({ products, setProducts }) => {
     navigate("/");
   };
 
+  if (!Object.keys(products).includes(id)) return <p>Product not found!!!</p>;
+
   const productInfo = (
     <>
       <div className="flex flex-col md:flex-row justify-between mb-2">
@@ -65,6 +67,7 @@ const ProductDetails = ({ products, setProducts }) => {
       </p>
     </>
   );
+
 
   return (
     <div className="main-padding flex  xl:flex-row flex-col justify-center gap-5">
