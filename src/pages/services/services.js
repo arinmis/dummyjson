@@ -2,7 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Input from "../../components/input";
-import { craeteImageArray, isAnyNullExist } from "../../helpers/helper";
+import {
+  craeteImageArray,
+  isAnyNullExist,
+  isImageUrl,
+} from "../../helpers/helper";
 
 const Services = ({ setProducts, newProductID }) => {
   const navigate = useNavigate();
@@ -33,6 +37,8 @@ const Services = ({ setProducts, newProductID }) => {
       alert("All the fields must be filled");
       return;
     }
+    // filter none image link
+    newProduct.images = newProduct.images.filter((url) => isImageUrl(url));
     console.log(newProduct);
     // update backend
     axios.post(`${process.env.REACT_APP_BASE_URL}/`, newProduct);
