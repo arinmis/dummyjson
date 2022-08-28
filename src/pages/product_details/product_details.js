@@ -37,7 +37,7 @@ const ProductDetails = ({ products, setProducts }) => {
           {/* TODO: update rating starts when user update */}
           <StarRatings
             rating={selectedProduct.rating}
-            starRatedColor="yellow"
+            starRatedColor="#FF9900"
             starDimension="1.5rem"
             starSpacing=".1prem"
           />
