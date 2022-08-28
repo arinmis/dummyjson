@@ -6,4 +6,4 @@ export const craeteImageArray = (csvImages) => {
 };
 
 export const isImageUrl = (url) =>
-  /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|webp)/g.test(url);
+  /(http(s?):)([/|.|\w|\s|-])*/g.test(url);

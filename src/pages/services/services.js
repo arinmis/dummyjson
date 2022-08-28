@@ -82,7 +82,7 @@ const Services = ({ setProducts, newProductID }) => {
           label="category"
           type="text"
           value={newProduct.category}
-          onChange={(event) => productFieldUpdater(event, "category")}
+          onChange={(event) => productFieldUpdater(event.target.value, "category")}
         />
         <Input
           label="discound percentage"
