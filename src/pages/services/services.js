@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Input from "../../components/input";
-import { craeteImageArray } from "../../helpers/helper";
+import { craeteImageArray, isAnyNullExist } from "../../helpers/helper";
 
 const Services = ({ setProducts, newProductID }) => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Services = ({ setProducts, newProductID }) => {
     brand: null,
     category: null,
     thumbnail: null,
-    images: [],
+    images: null,
   });
 
   const productFieldUpdater = (newValue, field) => {
@@ -29,6 +29,10 @@ const Services = ({ setProducts, newProductID }) => {
 
   const handleCreate = (event) => {
     event.preventDefault();
+    if (isAnyNullExist(newProduct)) {
+      alert("All the fields must be filled");
+      return;
+    }
     console.log(newProduct);
     // update backend
     axios.post(`${process.env.REACT_APP_BASE_URL}/`, newProduct);
@@ -62,7 +66,9 @@ const Services = ({ setProducts, newProductID }) => {
           label="stock"
           type="number"
           value={newProduct.stock}
-          onChange={(event) => productFieldUpdater(Number(event.target.value), "stock")}
+          onChange={(event) =>
+            productFieldUpdater(Number(event.target.value), "stock")
+          }
         />
         <Input
           label="rating"
@@ -82,7 +88,9 @@ const Services = ({ setProducts, newProductID }) => {
           label="category"
           type="text"
           value={newProduct.category}
-          onChange={(event) => productFieldUpdater(event.target.value, "category")}
+          onChange={(event) =>
+            productFieldUpdater(event.target.value, "category")
+          }
         />
         <Input
           label="discound percentage"
@@ -110,7 +118,9 @@ const Services = ({ setProducts, newProductID }) => {
           <Input
             label={"images(comma separated links)"}
             type={"text"}
-            value={newProduct.images.toString()}
+            value={
+              newProduct.images === null ? "" : newProduct.images.toString()
+            }
             onChange={(event) => {
               const images = craeteImageArray(event.target.value);
               setnewProduct((prev) => ({
