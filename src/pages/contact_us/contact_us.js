@@ -12,14 +12,13 @@ const ContactUs = () => {
           <Input label={"email"} type={"email"} />
         </div>
         <label className="col-span-2 h-full">
-          <span className="text-xs">Message:</span>
+          <span className="">Message:</span>
           <textarea className="w-full input-style h-24" />
         </label>
         <div className="col-span-2 flex justify-end">
           <button
             onClick={(e) => {
               e.preventDefault();
-              alert("We received your message.");
             }}
             className="btn-primary mt-3"
           >
