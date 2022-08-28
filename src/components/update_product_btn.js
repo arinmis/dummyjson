@@ -8,10 +8,10 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
   const [isModalOn, setIsModalOn] = useState(false);
   const [updatedProduct, setUpdatedProduct] = useState({ ...selectedProduct });
 
-  const productFieldUpdater = (event, field) => {
+  const productFieldUpdater = (newValue, field) => {
     return setUpdatedProduct((prev) => ({
       ...prev,
-      [field]: event.target.value,
+      [field]: newValue,
     }));
   };
 
@@ -58,44 +58,44 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
               label="title"
               type="text"
               value={updatedProduct.title}
-              onChange={(event) => productFieldUpdater(event, "title")}
+              onChange={(event) => productFieldUpdater(event.target.value, "title")}
             />
             <Input
               label="price"
               type="number"
               value={updatedProduct.price}
-              onChange={(event) => productFieldUpdater(event, "price")}
+              onChange={(event) => productFieldUpdater(Number(event.target.value), "price")}
             />
             <Input
               label="stock"
               type="number"
               value={updatedProduct.stock}
-              onChange={(event) => productFieldUpdater(event, "stock")}
+              onChange={(event) => productFieldUpdater(Number(event.target.value), "stock")}
             />
             <Input
               label="rating"
               type="number"
               value={updatedProduct.rating}
-              onChange={(event) => productFieldUpdater(event, "rating")}
+              onChange={(event) => productFieldUpdater(Number(event.target.value), "rating")}
             />
             <Input
               label="brand"
               type="text"
               value={updatedProduct.brand}
-              onChange={(event) => productFieldUpdater(event, "brand")}
+              onChange={(event) => productFieldUpdater(event.target.value, "brand")}
             />
             <Input
               label="category"
               type="text"
               value={updatedProduct.category}
-              onChange={(event) => productFieldUpdater(event, "category")}
+              onChange={(event) => productFieldUpdater(event.target.value, "category")}
             />
             <div className="col-span-2">
               <Input
                 label="thumbnail"
                 type="link"
                 value={updatedProduct.thumbnail}
-                onChange={(event) => productFieldUpdater(event, "thumbnail")}
+                onChange={(event) => productFieldUpdater(event.target.value, "thumbnail")}
               />
             </div>
             <div className="col-span-2">

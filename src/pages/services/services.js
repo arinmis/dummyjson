@@ -20,10 +20,10 @@ const Services = ({ setProducts, newProductID }) => {
     images: [],
   });
 
-  const productFieldUpdater = (event, field) => {
+  const productFieldUpdater = (newValue, field) => {
     return setnewProduct((prev) => ({
       ...prev,
-      [field]: event.target.value,
+      [field]: newValue,
     }));
   };
 
@@ -48,31 +48,35 @@ const Services = ({ setProducts, newProductID }) => {
           label="title"
           type="text"
           value={newProduct.title}
-          onChange={(event) => productFieldUpdater(event, "title")}
+          onChange={(event) => productFieldUpdater(event.target.value, "title")}
         />
         <Input
           label="price"
           type="number"
           value={newProduct.price}
-          onChange={(event) => productFieldUpdater(event, "price")}
+          onChange={(event) =>
+            productFieldUpdater(Number(event.target.value), "price")
+          }
         />
         <Input
           label="stock"
           type="number"
           value={newProduct.stock}
-          onChange={(event) => productFieldUpdater(event, "stock")}
+          onChange={(event) => productFieldUpdater(Number(event.target.value), "stock")}
         />
         <Input
           label="rating"
           type="number"
           value={newProduct.rating}
-          onChange={(event) => productFieldUpdater(event, "rating")}
+          onChange={(event) =>
+            productFieldUpdater(Number(event.target.value), "rating")
+          }
         />
         <Input
           label="brand"
           type="text"
           value={newProduct.brand}
-          onChange={(event) => productFieldUpdater(event, "brand")}
+          onChange={(event) => productFieldUpdater(event.target.value, "brand")}
         />
         <Input
           label="category"
@@ -84,7 +88,12 @@ const Services = ({ setProducts, newProductID }) => {
           label="discound percentage"
           type="number"
           value={newProduct.discountPercentage}
-          onChange={(event) => productFieldUpdater(event, "discountPercentage")}
+          onChange={(event) =>
+            productFieldUpdater(
+              Number(event.target.value),
+              "discountPercentage"
+            )
+          }
         />
 
         <div className="col-span-2">
@@ -92,7 +101,9 @@ const Services = ({ setProducts, newProductID }) => {
             label="thumbnail"
             type="link"
             value={newProduct.thumbnail}
-            onChange={(event) => productFieldUpdater(event, "thumbnail")}
+            onChange={(event) =>
+              productFieldUpdater(event.target.value, "thumbnail")
+            }
           />
         </div>
         <div className="col-span-2">
@@ -101,7 +112,7 @@ const Services = ({ setProducts, newProductID }) => {
             type={"text"}
             value={newProduct.images.toString()}
             onChange={(event) => {
-              const images = craeteImageArray(event.target.value); 
+              const images = craeteImageArray(event.target.value);
               setnewProduct((prev) => ({
                 ...prev,
                 images: images,

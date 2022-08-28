@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-import ReactStars from "react-rating-stars-component";
 import { useNavigate, useParams } from "react-router";
+import StarRatings from "react-star-ratings/build/star-ratings";
 import ImageViewer from "../../components/image_viewer";
 import UpdateProductBtn from "../../components/update_product_btn";
 
@@ -10,9 +10,6 @@ const ProductDetails = ({ products, setProducts }) => {
   const navigate = useNavigate();
   const selectedProduct = products[id];
 
-  const roundStarDecimal = (decimal) => {
-    return Math.floor(decimal) + (decimal % 1 >= 0.5 ? 0.5 : 0);
-  };
 
   const handleDelete = () => {
     if (!window.confirm(`Are you sure to delete ${selectedProduct.title}?`))
@@ -38,11 +35,11 @@ const ProductDetails = ({ products, setProducts }) => {
         </p>
         <div className="flex items-center">
           {/* TODO: update rating starts when user update */}
-          <ReactStars
-            size="20"
-            edit={false}
-            isHalf={true}
-            value={roundStarDecimal(selectedProduct.rating)}
+          <StarRatings
+            rating={selectedProduct.rating}
+            starRatedColor="yellow"
+            starDimension="1.5rem"
+            starSpacing=".1prem"
           />
           <span className="ml-2">{selectedProduct.rating}</span>
         </div>
@@ -67,7 +64,6 @@ const ProductDetails = ({ products, setProducts }) => {
       </p>
     </>
   );
-
 
   return (
     <div className="main-padding flex  xl:flex-row flex-col justify-center gap-5">
