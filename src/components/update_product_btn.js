@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import { craeteImageArray, isAnyNullExist } from "../helpers/helper";
+import {
+  craeteImageArray,
+  isAnyNullExist,
+  isImageUrl,
+} from "../helpers/helper";
 import Input from "./input";
 import Modal from "./modal";
 
@@ -22,6 +26,11 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
       alert("All the fields must be filled");
       return;
     }
+
+    // filter none image link
+    updatedProduct.images = updatedProduct.images.filter((url) =>
+      isImageUrl(url)
+    );
     console.log(updatedProduct);
     // update backend
     const copyUpdatedProduct = Object.assign({}, updatedProduct);
