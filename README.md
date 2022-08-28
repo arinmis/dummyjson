@@ -1,5 +1,5 @@
 # Visit live app
-[sandbox-test-app](https://sandbox-test-project.netlify.app/)
+[live app](https://sandbox-test-project.netlify.app/)
 
 ## Getting Started with Create React App
 
