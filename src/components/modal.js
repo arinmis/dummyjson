@@ -3,7 +3,7 @@ const Modal = ({ isOn, setIsOn, content }) => {
     <>
       <div
         id="modal"
-        className="fixed z-50 inset-0 flex justify-center items-center bg-dark bg-opacity-80 overflow-y-auto h-screen w-screen"
+        className="fixed z-50 p-10 inset-0 flex justify-center items-center bg-dark bg-opacity-80 overflow-y-auto h-screen w-screen"
       >
         <div className="card w-fit h-fit">
           <div className="flex justify-end icon-container">

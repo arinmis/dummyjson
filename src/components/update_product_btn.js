@@ -22,15 +22,16 @@ const UpdateProductBtn = ({ selectedProduct, setProducts }) => {
   const handleUpdate = (event) => {
     event.preventDefault();
 
+    // filter none image link
+    updatedProduct.images = updatedProduct.images.filter((url) =>
+      isImageUrl(url)
+    );
+
     if (isAnyNullExist(updatedProduct)) {
       alert("All the fields must be filled");
       return;
     }
 
-    // filter none image link
-    updatedProduct.images = updatedProduct.images.filter((url) =>
-      isImageUrl(url)
-    );
     console.log(updatedProduct);
     // update backend
     const copyUpdatedProduct = Object.assign({}, updatedProduct);

@@ -21,7 +21,7 @@ const Services = ({ setProducts, newProductID }) => {
     brand: null,
     category: null,
     thumbnail: null,
-    images: null,
+    images: [],
   });
 
   const productFieldUpdater = (newValue, field) => {
@@ -33,12 +33,13 @@ const Services = ({ setProducts, newProductID }) => {
 
   const handleCreate = (event) => {
     event.preventDefault();
+    // filter none image link
+    newProduct.images = newProduct.images.filter((url) => isImageUrl(url));
+
     if (isAnyNullExist(newProduct)) {
       alert("All the fields must be filled");
       return;
     }
-    // filter none image link
-    newProduct.images = newProduct.images.filter((url) => isImageUrl(url));
     console.log(newProduct);
     // update backend
     axios.post(`${process.env.REACT_APP_BASE_URL}/`, newProduct);
