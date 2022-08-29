@@ -18,13 +18,11 @@ const Home = ({ products }) => {
             alt={`${productInfo.title} foto`}
           />
           <div className="text-left align-middle">
-            <div className="font-bold"> {productInfo.title}</div>
+            <div className="font-bold">{productInfo.title}</div>
             <div>
-              Price:
               <span className="text-lg">{productInfo.price}</span>
               <sup>$</sup>
             </div>
-            <p>Description: {productInfo.description}</p>
           </div>
         </div>
       </div>
