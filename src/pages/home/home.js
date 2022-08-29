@@ -20,8 +20,8 @@ const Home = ({ products }) => {
           <div className="text-left align-middle">
             <div className="font-bold">{productInfo.title}</div>
             <div>
-              <span className="text-lg">{productInfo.price}</span>
               <sup>$</sup>
+              <span className="text-lg">{productInfo.price}</span>
             </div>
           </div>
         </div>

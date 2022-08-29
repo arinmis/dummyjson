@@ -49,8 +49,8 @@ const ProductDetails = ({ products, setProducts }) => {
       <p>
         <span className="text-sm">Price: </span>
         <span className="text-xl font-bold">
-          {selectedProduct.price}
           <sup>$</sup>
+          {selectedProduct.price}
         </span>
       </p>
       <p>
