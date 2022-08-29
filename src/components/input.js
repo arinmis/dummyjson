@@ -7,7 +7,7 @@ const Input = ({ label, type, value, readOnly, onChange }) => {
         type={type}
         className={
           (readOnly ? "hover:cursor-not-allowed" : null) +
-          " w-full input-style focus:border"
+          " w-full  input-style  focus:border"
         }
         value={value ? value : null}
         readOnly={readOnly}

@@ -29,7 +29,7 @@
 }
 
 .input-style {
-  @apply bg-slate p-2 h-12;
+  @apply bg-slate p-2 h-12 h-10 rounded-sm;
 }
 
 .btn {
