@@ -17,7 +17,8 @@ const Product = ({ thumbnail, title, price, id }) => {
       </div>
       <div className="text-left  grid mt-2">
         <div>
-          <span className="text-lg">{price}</span> <sup>$</sup>
+          <sup>$</sup>
+          <span className="text-lg">{price}</span>
         </div>
         <div className="font-bold"> {title}</div>
       </div>
