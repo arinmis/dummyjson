@@ -38,6 +38,7 @@ const ProductDetails = ({ products, setProducts }) => {
           <StarRatings
             rating={selectedProduct.rating}
             starRatedColor="#FF9900"
+            starEmptyColor="#6b7280"
             starDimension="1.5rem"
             starSpacing=".1prem"
           />
