@@ -9,7 +9,7 @@ const Home = ({ products }) => {
     return (
       <div
         onClick={() => navigate(`product/${greaterProductID}`)}
-        className="col-span-full h-96 mb-5"
+        className="col-span-full h-96 mb-5 w-full"
       >
         <div className="card card-onhover p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
           <img
