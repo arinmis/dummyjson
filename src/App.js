@@ -30,9 +30,9 @@ const App = () => {
   //   Number(Object.keys(products)[Object.keys(products).length - 1]) + 1;
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col overflow-x-hidden	">
+      <div className="min-h-screen bg-main flex flex-col overflow-x-hidden	">
         <Header />
-        <main>
+        <main className="">
           <Routes>
             <Route index element={<Home products={products} />} />
             <Route path="/about-us" element={<AboutUs />} />

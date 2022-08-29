@@ -10,6 +10,7 @@ module.exports = {
         danger: "#C70039",
         grey: "#6b7280", 
         slate: "#f1f5f9", 
+        main:"#f8f8ff"
       },
     },
   plugins: [],
