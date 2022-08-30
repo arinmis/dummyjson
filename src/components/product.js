@@ -6,7 +6,7 @@ const Product = ({ thumbnail, title, price, id }) => {
   return (
     <div
       onClick={() => navigate(`product/${id}`)}
-      className="card card-onhover p-2 w-full h-96 flex flex-col justify-center"
+      className="card card-onhover p-0 w-full h-96 flex flex-col justify-center"
     >
       <div className="h-5/6">
         <img
@@ -15,7 +15,7 @@ const Product = ({ thumbnail, title, price, id }) => {
           alt={`${title} foto`}
         />
       </div>
-      <div className="text-left  grid mt-2">
+      <div className="text-left grid mt-2 pl-2">
         <div>
           <sup>$</sup>
           <span className="text-lg">{price}</span>

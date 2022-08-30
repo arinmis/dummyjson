@@ -11,13 +11,13 @@ const Home = ({ products }) => {
         onClick={() => navigate(`product/${greaterProductID}`)}
         className="col-span-full h-96 mb-5 w-full"
       >
-        <div className="card card-onhover p-2 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
+        <div className="card card-onhover p-0 h-full grid md:grid-cols-2 grid-cols-1 gap-2">
           <img
             src={productInfo.thumbnail}
             className="object-cover h-full w-full rounded-sm overflow-hidden"
             alt={`${productInfo.title} foto`}
           />
-          <div className="text-left align-middle">
+          <div className="text-left align-middle pl-2 pt-2" >
             <div className="font-bold">{productInfo.title}</div>
             <div>
               <sup>$</sup>
